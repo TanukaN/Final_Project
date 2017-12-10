@@ -122,7 +122,7 @@ class accountsController extends http\controller
 
 
         if ($user == FALSE) {
-            echo 'user not found';
+            echo 'user could not be found';
         } else {
 
             if($user->checkPassword($_POST['password']) == TRUE) {
