@@ -16,18 +16,26 @@
 </head>
 
 <body>
+<?php include("logout.php");?>
 
-<?php
-//this is how you print something  $data contains the record that was selected on the table.
-
-print_r($data);
-?>
-<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
-    <button type="submit" form="form1" value="delete">Delete</button>
+<form action="index.php?page=accounts&action=save&id=<?php echo $data->id; ?>" method="post">
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" placeholder="Owner Email" name="owneremail" value="<?php echo $data->owneremail; ?>"><br>
+                <input type="text" placeholder="Owner ID" name="ownerid" value="<?php echo $data->ownerid; ?>"><br>
+                <input type="datetime" placeholder="Created Date" name="createddate" value="<?php echo $data->createddate; ?>"><br>
+                <input type="datetime" placeholder="Due Date" name="duedate" value="<?php echo $data->duedate; ?>"><br>
+                <input type="text" placeholder="Message" name="message" value="<?php echo $data->message; ?>"><br>
+                <input type="boolean" placeholder="Is Done" name="isdone" value="<?php echo $data->isdone; ?>"><br>
+                <button type="submit" value="Submit form" style="width: 150px; position: relative">Update</button>
+                <form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
+                    <button type="submit" form="form1" value="delete" style="width: 150px; position: relative">Delete</button>
+                </form>
+            </form>
+        </div>
+    </div>
 </form>
-
-
-
 
 <script src="js/scripts.js"></script>
 </body>
