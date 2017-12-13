@@ -16,18 +16,13 @@
 </head>
 
 <body>
+<?php include("logout.php");?>
 <h1>All Accounts</h1>
-
-<h1> HI</h1>
-
 <?php
-//this is how you print something
-
-print utility\htmlTable::genarateTableFromMultiArray($data);
-
+    //this is how you print something
+    print utility\htmlTable::genarateTableFromMultiArray($data);
 
 ?>
-
 
 <script src="js/scripts.js"></script>
 </body>
