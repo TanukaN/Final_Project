@@ -16,19 +16,27 @@
 </head>
 
 <body>
-
-
 <form action="index.php?page=accounts&action=register" method="post">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
-    Email: <input type="text" name="email"><br>
-    Phone: <input type="text" name="phone"><br>
-    Birthday: <input type="text" name="birthday"><br>
-    Gender: <input type="text" name="gender"><br>
-    Password: <input type="password" name="password"><br>
-    <input type="submit" value="Submit form">
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" placeholder="First name" name="fname"><br>
+                <input type="text" placeholder="Last name" name="lname"><br>
+                <input type="text" placeholder="Email" name="email"><br>
+                <input type="text" placeholder="Phone" name="phone"><br>
+                <input type="date" placeholder="Birthday" name="birthday"><br>
+                <select name="gender">
+                    <option value="" disabled selected hidden>Gender</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+                <input type="password" placeholder="Password" name="password"><br>
+                <button type="submit" value="Submit form">Create</button>
+                <p class="message">Already registered? <a href="index.php?">Sign In</a></p>
+            </form>
+        </div>
+    </div>
 </form>
-
 
 <script src="js/scripts.js"></script>
 </body>
