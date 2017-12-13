@@ -19,7 +19,7 @@
 
 <?php
 //this is how you print something
-
+include("logout.php");
 print utility\htmlTable::genarateTableFromMultiArray($data);
 
 
