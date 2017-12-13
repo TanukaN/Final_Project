@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+<?php include("logout.php");?>
 <h1><?php echo $data ?></h1>
 
 
