@@ -20,12 +20,16 @@
 <?php
 //this is how you print something
 include("logout.php");
-print utility\htmlTable::genarateTableFromMultiArray($data);
+
+if($data == false){
+    echo '<p>You do not have any tasks</p>';
+}else {
+    print utility\htmlTable::genarateTableFromMultiArray($data);
+}
+
 
 
 ?>
 
-
-<script src="js/scripts.js"></script>
 </body>
 </html>
