@@ -18,25 +18,20 @@
 <body>
 <?php include("logout.php");?>
 
-<form action="index.php?page=accounts&action=save&id=<?php echo $data->id; ?>" method="post">
+<form action="index.php?page=tasks&action=show&id=<?php echo $data->id; ?>" method="post">
     <div class="login-page">
         <div class="form">
             <form class="register-form">
-                <input type="text" placeholder="Owner Email" name="owneremail" value="<?php echo $data->owneremail; ?>"><br>
-                <input type="text" placeholder="Owner ID" name="ownerid" value="<?php echo $data->ownerid; ?>"><br>
-                <input type="datetime" placeholder="Created Date" name="createddate" value="<?php echo $data->createddate; ?>"><br>
-                <input type="datetime" placeholder="Due Date" name="duedate" value="<?php echo $data->duedate; ?>"><br>
-                <input type="text" placeholder="Message" name="message" value="<?php echo $data->message; ?>"><br>
-                <input type="boolean" placeholder="Is Done" name="isdone" value="<?php echo $data->isdone; ?>"><br>
-                <button type="submit" value="Submit form" style="width: 150px; position: relative">Update</button>
-                <form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
-                    <button type="submit" form="form1" value="delete" style="width: 150px; position: relative">Delete</button>
-                </form>
+                <input type="text" placeholder="Owner Email" name="owneremail"><br>
+                <input type="text" placeholder="Owner ID" name="ownerid"><br>
+                <input type="datetime" placeholder="Created Date" name="createddate"><br>
+                <input type="datetime" placeholder="Due Date" name="duedate"><br>
+                <input type="text" placeholder="Message" name="message"><br>
+
             </form>
         </div>
     </div>
 </form>
 
-<script src="js/scripts.js"></script>
 </body>
 </html>
