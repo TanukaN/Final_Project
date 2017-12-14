@@ -12,7 +12,7 @@
 
 <?php include("logout.php");?>
 <div class="body">
-    <h1>WELCOME BACK</h1>
+    <h1>WELCOME TO THE ACTIVE RECORD</h1>
 </div>
     <h2><br>
         <?php
@@ -23,7 +23,11 @@
         }
         ?>
     </h2>
-        <p><a href="index.php?page=accounts&action=show">EDIT YOUR PROFILE</a><br></p>
-        <a href="index.php?page=tasks&action=all">TO-DO LIST</a>
+    <p><a href="index.php?page=accounts&action=show">VIEW MY PROFILE</a><br></p>
+
+    <h2>TO-DO ITEMS</h2>
+    <a href = "index.php?page=tasks&action=create">CREATE TASK</a>
+    <a href="index.php?page=tasks&action=all">SHOW ALL TO-DO</a>
+
 </body>
 </html>
