@@ -14,15 +14,26 @@ class tasksController extends http\controller
     //to call the show function the url is index.php?page=task&action=show
     public static function show()
     {
-        $record = todos::findOne($_REQUEST['id']);
-        self::getTemplate('show_task', $record);
+        $task = todos::findOne($_REQUEST['id']);
+        self::getTemplate('edit_task', $task);
+    }
+
+    public static function newToDoForm()
+    {
+        $task = new todo();
+        self::getTemplate('createtask', $task);
     }
 
     //to call the show function the url is index.php?page=task&action=list_task
 
     public static function all()
     {
-        $records = todos::findAll();
+        //$records = todos::findAll();
+        session_start();
+        $userID = $_SESSION['userID'];
+
+        $tasks = todos::findTasksbyID($userID);
+
         /*session_start();
            if(key_exists('userID',$_SESSION)) {
                $userID = $_SESSION['userID'];
@@ -32,9 +43,9 @@ class tasksController extends http\controller
            }
         $userID = $_SESSION['userID'];
 
-        $records = todos::findTasksbyID($userID);
-        */
-        self::getTemplate('all_tasks', $records);
+        $records = todos::findTasksbyID($userID);*/
+
+        self::getTemplate('all_tasks', $tasks);
 
     }
     //to call the show function the url is called with a post to: index.php?page=task&action=create
@@ -44,15 +55,35 @@ class tasksController extends http\controller
 
     public static function create()
     {
-        print_r($_POST);
+        $task = new todo();
+        session_start();
+        date_default_timezone_set('America/New_York'    );
+        $task->ownerid = $_SESSION['userID'];
+        $task->owneremail = $_POST['owneremail'];
+        $task->createddate = date('Y/m/d');
+        $task->duedate = $_POST['duedate'];
+        $task->message = $_POST['message'];
+        $task->isdone = $_POST['isdone'];
+        $task->save();
+        header("Location: index.php?page=tasks&action=all");
+
+        /*
+        session_start();
+        $_SESSION["userID"] = $task->id;
+        //Added to fetch name of user to display on dashboard.php
+        $user = accounts::findOne($task->id);
+        $fname = $user->fname ;
+        $lname = $user->lname;
+        // and then send them to the task list page and a link to create tasks
+        header("Location: index.php?page=tasks&action=create");*/
     }
 
     //this is the function to view edit record form
     public static function edit()
     {
-        $record = todos::findOne($_REQUEST['id']);
+        $task = todos::findOne($_REQUEST['id']);
 
-        self::getTemplate('edit_task', $record);
+        self::getTemplate('edit_task', $task);
 
     }
 
@@ -60,32 +91,35 @@ class tasksController extends http\controller
     public static function store()
     {
 
-
-        $record = todos::findOne($_REQUEST['id']);
-        $record->body = $_REQUEST['body'];
-        $record->save();
-        print_r($_POST);
-
     }
 
     public static function save() {
-        session_start();
-        $task = new todo();
+        $task = todos::findOne($_REQUEST['id']);
 
-        $task->body = $_POST['body'];
-        $task->ownerid = $_SESSION['userID'];
+        $task->owneremail = $_POST['owneremail'];
+        $task->duedate = $_POST['duedate'];
+        $task->message = $_POST['message'];
+        $task->isdone = $_POST['isdone'];
+
         $task->save();
-
+        header("Location: index.php?page=tasks&action=all");
     }
 
     //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.
     //One form is the todo and the other is just for the delete button
     public static function delete()
     {
-        $record = todos::findOne($_REQUEST['id']);
-        $record->delete();
-        print_r($_POST);
+        $task = todos::findOne($_REQUEST['id']);
+        $task->delete();
+        header("Location: index.php?page=tasks&action=all");
 
+    }
+
+    public static function gettaskform()
+    {
+        //https://www.sitepoint.com/why-you-should-use-bcrypt-to-hash-stored-passwords/
+        //USE THE ABOVE TO SEE HOW TO USE Bcrypt
+        self::getTemplate('new_task');
     }
 
 }
