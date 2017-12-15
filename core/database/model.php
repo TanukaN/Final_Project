@@ -75,11 +75,13 @@ abstract class model
         $comma = " ";
         $sql = 'UPDATE ' . $tableName . ' SET ';
         foreach ($array as $key => $value) {
-            if (!empty($value)) {
+            if(isset($value))
+            {
                 $sql .= $comma . $key . ' = "' . $value . '"';
                 $comma = ", ";
             }
         }
+
         $sql .= ' WHERE id=' . $this->id;
         return $sql;
 
