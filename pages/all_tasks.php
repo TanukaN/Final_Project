@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
+    <title>Final Project</title>
+    <meta name="description" content="Final Project">
     <meta name="author" content="SitePoint">
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
@@ -16,20 +16,19 @@
 </head>
 
 <body>
-
+<?php include("header.php"); ?><br>
+<div style="margin-left:25%; padding:1px 16px; height:inherit; margin-top: 45px;">
+    <h2>TO DO ITEMS :-</h2>
 <?php
-//this is how you print something
-include("logout.php");
-
-if($data == false){
-    echo '<p>You do not have any tasks</p>';
-}else {
-    print utility\htmlTable::genarateTableFromMultiArray($data);
-}
-
-
+    if($data == false){
+        echo '<p>You do not have any tasks</p>';
+    }else {
+        echo "<html>";
+        echo "<div style=\" margin-left: 12%;\">";
+        print utility\htmlTable::genarateTableFromMultiArray($data);
+    }
 
 ?>
-
+</div>
 </body>
 </html>
