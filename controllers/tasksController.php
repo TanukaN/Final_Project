@@ -67,15 +67,6 @@ class tasksController extends http\controller
         $task->save();
         header("Location: index.php?page=tasks&action=all");
 
-        /*
-        session_start();
-        $_SESSION["userID"] = $task->id;
-        //Added to fetch name of user to display on dashboard.php
-        $user = accounts::findOne($task->id);
-        $fname = $user->fname ;
-        $lname = $user->lname;
-        // and then send them to the task list page and a link to create tasks
-        header("Location: index.php?page=tasks&action=create");*/
     }
 
     //this is the function to view edit record form
