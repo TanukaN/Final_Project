@@ -1,11 +1,12 @@
 <!doctype html>
+<!doctype html>
 
 <html lang="en">
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
+    <title>Final Project</title>
+    <meta name="description" content="Final Project">
     <meta name="author" content="SitePoint">
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
@@ -15,9 +16,10 @@
     <![endif]-->
 </head>
 
+<?php include("header.php");?>
 <body>
-<?php include("logout.php");?>
 
+<div style="margin-left:25%;padding:1px 16px;height:100px;">
 <form action="index.php?page=tasks&action=show&id=<?php echo $data->id; ?>" method="post">
     <div class="login-page">
         <div class="form">
@@ -32,6 +34,6 @@
         </div>
     </div>
 </form>
-
+</div>
 </body>
 </html>
