@@ -15,7 +15,9 @@ class accountsController extends http\controller
     //to call the show function the url is index.php?page=task&action=show
     public static function show()
     {
-        $record = accounts::findOne($_REQUEST['id']);
+        session_start();
+        $sessionId = $_SESSION["userID"];
+        $record = accounts::findOne($sessionId);
         self::getTemplate('show_account', $record);
     }
 
@@ -23,7 +25,6 @@ class accountsController extends http\controller
 
     public static function all()
     {
-
         $records = accounts::findAll();
         self::getTemplate('all_accounts', $records);
 
@@ -40,7 +41,10 @@ class accountsController extends http\controller
         //USE THE ABOVE TO SEE HOW TO USE Bcrypt
         self::getTemplate('register');
     }
-
+    public static function dashboard()
+    {
+        self::getTemplate('dashboard');
+    }
     //this is the function to save the user the new user for registration
     public static function store()
 
@@ -65,8 +69,15 @@ class accountsController extends http\controller
 
             //you may want to send the person to a
             // login page or create a session and log them in
+            session_start();
+            $_SESSION["userID"] = $user->id;
+            //Added to fetch name of user to display on dashboard.php
+            $user = accounts::findOne($user->id);
+            $fname = $user->fname ;
+            $lname = $user->lname;
             // and then send them to the task list page and a link to create tasks
-            header("Location: index.php?page=accounts&action=all");
+            header("Location: index.php?page=accounts&action=dashboard&fname=$fname&lname=$lname");
+
 
         } else {
             //You can make a template for errors called error.php
@@ -81,10 +92,10 @@ class accountsController extends http\controller
 
     public static function edit()
     {
-        $record = accounts::findOne($_REQUEST['id']);
-
+        session_start();
+        $sessionId = $_SESSION["userID"];
+        $record = accounts::findOne($sessionId);
         self::getTemplate('edit_account', $record);
-
     }
 //this is used to save the update form data
     public static function save() {
@@ -97,7 +108,7 @@ class accountsController extends http\controller
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
         $user->save();
-        header("Location: index.php?page=accounts&action=all");
+        header("Location: index.php?page=accounts&action=show");
 
     }
 
@@ -105,7 +116,7 @@ class accountsController extends http\controller
 
         $record = accounts::findOne($_REQUEST['id']);
         $record->delete();
-        header("Location: index.php?page=accounts&action=all");
+        header("Location: index.php?");
     }
 
     //this is to login, here is where you find the account and allow login or deny.
@@ -116,7 +127,7 @@ class accountsController extends http\controller
         //then you need to check the password and create the session if the password matches.
         //you might want to add something that handles if the password is invalid, you could add a page template and direct to that
         //after you login you can use the header function to forward the user to a page that displays their tasks.
-        //        $record = accounts::findUser($_POST['email']);
+        //$record = accounts::findUser($_POST['email']);
 
         $user = accounts::findUserbyEmail($_REQUEST['email']);
 
@@ -127,22 +138,25 @@ class accountsController extends http\controller
 
             if($user->checkPassword($_POST['password']) == TRUE) {
 
-                echo 'login';
+                echo 'Login Successful';
 
                 session_start();
                 $_SESSION["userID"] = $user->id;
-
+                //Added to fetch name of user to display on dashboard.php
+                $user = accounts::findOne($user->id);
+                $fname = $user->fname ;
+                $lname = $user->lname;
+                header("Location: index.php?page=accounts&action=dashboard&fname=$fname&lname=$lname");
+                ?>
+                <br>
+                <a href="index.php?page=accounts&action=all">SHOW ALL ACCOUNTS</a><br>
+                <a href="index.php?page=tasks&action=all">SHOW ALL TO-DO</a>
+                <?php
                 //forward the user to the show all todos page
                 print_r($_SESSION);
             } else {
-                echo 'password does not match';
+                echo 'Password does not match';
             }
-
         }
-
-
-
-
     }
-
 }
