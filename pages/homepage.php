@@ -16,6 +16,7 @@
         echo $data['site_name'];
     ?>
 </h1>
+
 <form action="index.php?page=accounts&action=login" method="POST">
     <div  class="login-page">
         <div class="form">
@@ -28,6 +29,5 @@
         </div>
     </div>
 </form>
-<script src="js/scripts.js"></script>
 </body>
 </html>
