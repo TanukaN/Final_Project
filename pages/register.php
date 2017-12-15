@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
+    <title>Final Project</title>
+    <meta name="description" content="Final Project">
     <meta name="author" content="SitePoint">
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
@@ -32,12 +32,14 @@
                 </select>
                 <input type="password" placeholder="Password" name="password"><br>
                 <button type="submit" value="Submit form">Create</button>
-                <p class="message">Already registered? <a href="index.php?">Sign In</a></p>
+                <form action="index.php?page=accounts&action=login" method="get">
+                    <p class="message">Already registered? <a href="index.php?">Sign In</a></p>
+                </form>
             </form>
         </div>
     </div>
 </form>
 
-<script src="js/scripts.js"></script>
+
 </body>
 </html>
