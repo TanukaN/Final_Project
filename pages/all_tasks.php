@@ -16,7 +16,9 @@
 </head>
 
 <body>
-<?php include("header.php"); ?><br>
+<?php
+$active = 'showtask';
+include("header.php"); ?><br>
 <div style="margin-left:25%; padding:1px 16px; height:inherit; margin-top: 45px;">
     <h2>TO DO ITEMS :-</h2>
 <?php
