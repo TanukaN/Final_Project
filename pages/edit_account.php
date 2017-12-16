@@ -1,5 +1,4 @@
 <!doctype html>
-<!doctype html>
 
 <html lang="en">
 <head>
@@ -15,27 +14,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
 </head>
-
-<body>
 <?php
-$active = 'profile';
+$active = 'showtask';
 include("header.php");?>
-<div style="margin-left:25%;padding:1px 16px;">
-<form action="index.php?page=accounts&action=save&id=<?php echo $data->id; ?>" method="post">
+<body>
+<div style="margin-left:25%;padding:1px 16px;height:100px;">
+<form action="index.php?page=tasks&action=save&id=<?php echo $data->id; ?>" method="post">
     <div class="login-page">
-        <div class="form" style="margin-top: inherit; height: inherit; margin-bottom: inherit; ">
+        <div class="form">
             <form class="register-form">
-                <input type="text" placeholder="First name" name="fname" value="<?php echo $data->fname; ?>"><br>
-                <input type="text" placeholder="Last name" name="lname" value="<?php echo $data->lname; ?>"><br>
-                <input type="email" placeholder="Email" name="email" value="<?php echo $data->email; ?>"><br>
-                <input type="tel" placeholder="Phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required title="Enter in the form of xxx-xxx-xxxx" value="<?php echo $data->phone; ?>"><br>
-                <input type="text" onfocus="(this.type='date')" placeholder="Birthday" name="birthday" value="<?php echo $data->birthday; ?>"><br>
-                <input type="text" placeholder="Gender" name="gender" value="<?php echo $data->gender; ?>"><br>
-                <button type="submit" value="Submit form">UPDATE</button>
+                <input type="email" placeholder="Owner Email" name="owneremail" value="<?php echo $data->owneremail; ?>" required><br>
+                <input type="text" onfocus="(this.type='date')" placeholder="Due Date" name="duedate" value="<?php echo $data->duedate; ?>" required><br>
+                <input type="text" placeholder="Message" name="message" value="<?php echo $data->message; ?>" required><br>
+                <input type="text" placeholder="Is Done" name="isdone" value="<?php echo $data->isdone; ?>" required><br>
+                <button type="submit" value="Submit form" style="width: 150px; position: relative">UPDATE</button><br><br>
+            </form>
+            <form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
+                <button type="submit" form="form1" value="delete" style="width: 150px; position: relative">Delete</button>
             </form>
         </div>
     </div>
 </form>
 </div>
+
 </body>
 </html>
