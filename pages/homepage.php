@@ -11,17 +11,18 @@
 
 <body>
 
-<h1>
+<h3>
     <?php
         echo $data['site_name'];
     ?>
-</h1>
+</h3><br>
+<h1>TO-DO LIST ACTIVE RECORD WEB APPLICATION</h1>
 
 <form action="index.php?page=accounts&action=login" method="POST">
     <div  class="login-page">
-        <div class="form">
+        <div class="form" style="margin-bottom: inherit; margin-top: -60px; ">
             <form class="login-form">
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <input type="email" placeholder="Enter Email" name="email" required>
                 <input type="password" placeholder="Enter Password" name="password" required>
                 <button type="submit">Login</button>
                 <p class="message">Not registered? <a href="index.php?page=accounts&action=register">Create an account</a></p>
