@@ -1,5 +1,4 @@
 <!doctype html>
-<!doctype html>
 
 <html lang="en">
 <head>
@@ -24,10 +23,10 @@
     <div class="login-page">
         <div class="form">
             <form class="register-form">
-                <input type="text" placeholder="Owner Email" name="owneremail"><br>
+                <input type="email" placeholder="Owner Email" name="owneremail"><br>
                 <input type="text" placeholder="Owner ID" name="ownerid"><br>
-                <input type="datetime" placeholder="Created Date" name="createddate"><br>
-                <input type="datetime" placeholder="Due Date" name="duedate"><br>
+                <input type="date" placeholder="Created Date" name="createddate"><br>
+                <input type="text" placeholder="Due Date" name="duedate"><br>
                 <input type="text" placeholder="Message" name="message"><br>
 
             </form>
