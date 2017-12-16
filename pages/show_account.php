@@ -17,7 +17,9 @@
 
 
 <body>
-<?php include("header.php");?>
+<?php
+$active = 'profile';
+include("header.php");?>
 <div style="margin-left:25%;padding:1px 16px;">
     <div class="login-page">
         <div class="form" style="margin-top: inherit; height: inherit; margin-bottom: inherit; ">
