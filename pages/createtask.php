@@ -16,6 +16,7 @@
 </head>
 
 <?php
+$active = 'createtask';
 include("header.php");
 ?>
 <body>
@@ -25,10 +26,10 @@ include("header.php");
     <div class="login-page">
         <div class="form">
             <form class="register-form">
-                <input type="text" placeholder="Owner Email" name="owneremail"><br>
-                <input type="datetime" placeholder="Due Date" name="duedate"><br>
-                <input type="text" placeholder="Message" name="message"><br>
-                <input type="text" placeholder="Is Done?" name="isdone"><br>
+                <input type="email" placeholder="Owner Email" name="owneremail" required><br>
+                <input type="text" onfocus="(this.type='date')" placeholder="Due Date" name="duedate" required><br>
+                <input type="text" placeholder="Message" name="message" required><br>
+                <input type="text" placeholder="Is Done?" name="isdone" pattern="[0-1]{1}" title="Enter 0 or 1" required><br>
                 <button type="submit" value="Submit form">CREATE</button>
             </form>
         </div>
