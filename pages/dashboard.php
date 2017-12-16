@@ -16,12 +16,16 @@
 </head>
 
 <body>
-
-<?php include("header.php");
-$headerClass='dashboard';
-$header='dashboard';?>
-<div style="margin-left:25%;padding:1px 16px;height:100px;">
-    <h1>WELCOME TO MY WEBSITE</h1>
+<?php
+$active = 'homepage';
+include("header.php"); ?>
+<div style="margin-left:25%; padding:1px 16px; height:inherit;">
+    <br><br><h1>Accomplish more,<br>every day.</h1>
+    <h3>Millions of people rely on calendars to get things done.</h3>
+    <br><br><br>
+    <p>
+        This website gives you more than that. <br>Manage tasks from anywhere. At home. At school. At work. Online. Offline. And across 10+ platforms.
+    </p>
 
     <h2><br>
         <?php
@@ -32,13 +36,13 @@ $header='dashboard';?>
         }
         ?>
     </h2>
-<input style="width: 150px; font-family: Roboto, sans-serif; text-transform: uppercase; outline: 0; background: #4CAF50;  border: 0; padding: 15px;
-        color: #FFFFFF; font-size: 14px; cursor: pointer; position: relative" type="button" value="VIEW MY PROFILE" onclick="window.location.href='index.php?page=accounts&action=show'" />
-<h3>TO-DO ITEMS</h3>
-<input style="width: 150px; font-family: Roboto, sans-serif; text-transform: uppercase; outline: 0; background: #4CAF50;  border: 0; padding: 15px;
-        color: #FFFFFF; font-size: 14px; cursor: pointer; position: relative" type="button" value="CREATE TASK" onclick="window.location.href='index.php?page=tasks&action=create'" />
-<input style="width: 150px; font-family: Roboto, sans-serif; text-transform: uppercase; outline: 0; background: #4CAF50;  border: 0; padding: 15px;
-        color: #FFFFFF; font-size: 14px; cursor: pointer; position: relative" type="button" value="SHOW ALL TASKS" onclick="window.location.href='index.php?page=tasks&action=all'" />
+    <input style="width: 200px; font-family: Roboto, sans-serif; text-transform: uppercase; outline: 0; background: #4CAF50;  border: 0; padding: 15px;
+            color: #FFFFFF; font-size: 14px; cursor: pointer; position: relative" type="button" value="MANAGE MY PROFILE" onclick="window.location.href='index.php?page=accounts&action=show'" />
+    <h3>TO-DO ITEMS</h3>
+    <input style="width: 200px; font-family: Roboto, sans-serif; text-transform: uppercase; outline: 0; background: #4CAF50;  border: 0; padding: 15px;
+            color: #FFFFFF; font-size: 14px; cursor: pointer; position: relative" type="button" value="CREATE TASKS TO DO" onclick="window.location.href='index.php?page=tasks&action=create'" />
+    <input style="width: 200px; font-family: Roboto, sans-serif; text-transform: uppercase; outline: 0; background: #4CAF50;  border: 0; padding: 15px;
+            color: #FFFFFF; font-size: 14px; cursor: pointer; position: relative" type="button" value="VIEW ALL TASKS" onclick="window.location.href='index.php?page=tasks&action=all'" />
 </div>
 </body>
 </html>
