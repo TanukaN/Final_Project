@@ -14,11 +14,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
 </head>
-<?php include("header.php");?>
+
 <body>
 
-<div style="margin-left:25%;padding:1px 16px;height:100px;">
 <h1><?php echo $data ?></h1>
 </div>
 </body>
-</html>
