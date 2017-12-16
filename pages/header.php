@@ -17,10 +17,11 @@
 </head>
 <body>
 <ul>
-    <li><a href="index.php?page=accounts&action=dashboard">Homepage</a></li>
-    <li><a href="index.php?page=accounts&action=show">My Profile</a></li>
-    <li><a href="index.php?page=tasks&action=create">Create Task</a></li>
-    <li><a href="index.php?page=tasks&action=all">Show All Tasks</a></li>
+    <li><img src="https://i.amz.mshcdn.com/YHPi3Fyu3Ga5qPUpUjrB7n9--FM=/1200x627/2012%2F12%2F04%2Fba%2F6fantastict.9o6.jpg" style="margin-top: 10px; width: 300px; height: 180px; "></li><br>
+    <li><a href="index.php?page=accounts&action=dashboard" <?php if($active == 'homepage') {echo 'class="active"';} ?>>Homepage</a></li>
+    <li><a href="index.php?page=accounts&action=show" <?php if($active == 'profile') {echo 'class="active"';} ?>>My Profile</a></li>
+    <li><a href="index.php?page=tasks&action=create"  <?php if($active == 'createtask') {echo 'class="active"';} ?>>Create Task</a></li>
+    <li><a href="index.php?page=tasks&action=all"  <?php if($active == 'showtask') {echo 'class="active"';} ?>>Show All Tasks</a></li>
     <li><a href="index.php?">Logout</a></li>
 </ul>
 </body>
